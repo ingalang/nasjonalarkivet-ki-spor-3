@@ -15,4 +15,11 @@ Dette repoet inneholder ressurser og oppgaver for spor 3 i Nasjonalarkivets KI-l
 2. Les gjennom ressursene
 3. Gå løs på oppgavene
 
+## Tilbakemelding
+
+Gi oss anonym tilbakemelding etter kurset:
+
+- **Claude Code / Codex:** Start agenten i denne mappen og skriv `/survey` (Codex: `survey`).
+- **ChatGPT:** Lim inn innholdet i [`.claude/skills/survey/SKILL.md`](.claude/skills/survey/SKILL.md) i en ny samtale.
+
 Spørsmål eller forslag? Opprett en issue eller ta kontakt med kursansvarlig.

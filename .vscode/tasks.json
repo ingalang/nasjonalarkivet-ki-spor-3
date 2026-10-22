@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Survey: Start server",
+      "type": "shell",
+      "command": "python3 survey/server.py",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Survey: Ngrok",
+      "type": "shell",
+      "command": "ngrok http --url=uniambic-kamari-unbarrelled.ngrok-free.dev 8000",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Survey: Dashboard",
+      "type": "shell",
+      "command": "python3 survey/dashboard.py",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Survey: Start",
+      "dependsOn": [
+        "Survey: Start server",
+        "Survey: Ngrok",
+        "Survey: Dashboard"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}

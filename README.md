@@ -32,7 +32,20 @@ This repo holds resources and tasks for track 3 of the National Archives' AI lea
 
 Give us anonymous feedback after the course:
 
-- **Claude Code / Codex:** Start the agent in this folder and type `/survey` (Codex: `survey`).
-- **ChatGPT:** Paste the contents of [`.claude/skills/survey/SKILL.md`](.claude/skills/survey/SKILL.md) into a new conversation.
+Run one of these in this folder:
+
+**Codex**
+
+```bash
+codex survey
+```
+
+**Claude Code**
+
+```bash
+claude /survey
+```
+
+**ChatGPT:** Paste the contents of [`.claude/skills/survey/SKILL.md`](.claude/skills/survey/SKILL.md) into a new conversation.
 
 Questions or suggestions? Open an issue or contact the course lead.

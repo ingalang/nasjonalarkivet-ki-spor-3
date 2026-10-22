@@ -1,0 +1,3 @@
+# Training repo: lets the survey upload (and gh/git) reach the network from the sandbox.
+[sandbox_workspace_write]
+network_access = true

@@ -56,6 +56,10 @@ ISSUE="$ISSUE" BRANCH="$BRANCH" awk '{
 
 PROMPT="Follow the instructions in .agent/instructions.md."
 echo "✅ #$ISSUE → $WT ($BRANCH, $TEMPLATE)"
+if [[ "$TEMPLATE" == autopilot && "$AGENT" == codex ]]; then
+  echo "Tip: keep Codex going until it is done by pasting this once the session is open:"
+  echo "  /goal Finish #$ISSUE: every acceptance criterion in the issue is met and the draft PR is handed over"
+fi
 if [[ "$START" == false ]]; then
   printf 'Start the agent in a new terminal window:\n  cd "%s"; %s "%s"\n' "$WT" "$AGENT" "$PROMPT"
   exit 0

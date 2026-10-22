@@ -12,6 +12,7 @@ Take **#{{ISSUE}}** from issue to one finished **draft** PR without asking me an
 
 - **Don't ask me.** Where you would have asked, decide yourself: follow the pattern the code already uses, then `AGENTS.md`, then common good practice. Pick the smallest change that solves the issue.
 - **Write down every decision**, with the options and why you chose as you did. That replaces the questions you would have asked me.
+- **Done means every acceptance criterion in the issue is met.** If the issue has none, write your own in the plan comment. The PR description shows evidence for each one.
 - **Stay inside the issue.** Note anything outside it as a follow-up, but don't build it.
 - **If you are blocked** (missing access, an empty issue, something down), finish what you can, write the blocker at the top of the PR description and stop.
 
@@ -35,6 +36,7 @@ Update the PR description (write it to a file and use `gh pr edit --body-file`):
 - `Closes #{{ISSUE}}`
 - **What changed**, short and concrete
 - **How it was verified**: the commands you ran and the result. Say honestly what you couldn't run.
+- **Acceptance criteria**: each one as a checkbox, ticked only with evidence
 - **Decisions** you made, with a link to the plan comment
 - **Not done**: follow-ups outside the issue
 

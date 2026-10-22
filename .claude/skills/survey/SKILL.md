@@ -45,7 +45,8 @@ Then upload it by running exactly this one command (on Windows use `curl.exe` in
 curl -sS -X POST -H "ngrok-skip-browser-warning: 1" --data-binary @tilbakemelding-<id>.md https://uniambic-kamari-unbarrelled.ngrok-free.dev/
 
 - If the response is "Takk for tilbakemeldingen!", tell me it was sent.
-- If the command fails, tell me in Norwegian that the upload failed and that I can send the file tilbakemelding-<id>.md to the course leader instead.
+- If it fails with a network error such as "Could not resolve host", your sandbox is probably blocking the network. Run the same command once more and ask for permission to run it outside the sandbox (with network access).
+- If it still fails, tell me in Norwegian that the upload failed and that I can send the file tilbakemelding-<id>.md to the course leader instead.
 - If you cannot write files or run commands (for example in ChatGPT), skip both steps. Show the content, then give me this link to click, with every value URL-encoded:
 
 https://uniambic-kamari-unbarrelled.ngrok-free.dev/?skjema=spor3-oslo-v1&id=<id>&Q1=<…>&Q2=<…>&Q3=<…>&Q4=<…>&Q5=<…>&Q6=<…>

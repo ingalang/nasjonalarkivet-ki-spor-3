@@ -1,4 +1,4 @@
-# The National Archives of Norway – AI learning, track 3
+# Nasjonalarkivet – KI spor 3
 
 This repo holds resources and tasks for track 3 of the National Archives' AI learning programme.
 

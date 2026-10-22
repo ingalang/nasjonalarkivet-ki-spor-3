@@ -1,4 +1,4 @@
-"""Live dashboard for svar.jsonl.
+"""Live dashboard for the answers in the survey-db Postgres container.
 
 Run:  python3 survey/dashboard.py   (opens http://localhost:8001 in the browser)
 Localhost only – the answers are not exposed through ngrok.
@@ -8,27 +8,16 @@ import webbrowser
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
+import db
+
 ROOT = Path(__file__).resolve().parent
-OUT = ROOT.parent / "svar.jsonl"
 PORT = 8001
-
-
-def read_rows():
-    if not OUT.exists():
-        return []
-    rows = []
-    for line in OUT.read_text(encoding="utf-8").splitlines():
-        try:
-            rows.append(json.loads(line))
-        except json.JSONDecodeError:
-            pass  # half-written line, picked up on the next poll
-    return rows
 
 
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == "/data":
-            self.reply(json.dumps(read_rows(), ensure_ascii=False), "application/json")
+            self.reply(json.dumps(db.rows(), ensure_ascii=False), "application/json")
         else:
             self.reply((ROOT / "dashboard.html").read_text(encoding="utf-8"), "text/html")
 

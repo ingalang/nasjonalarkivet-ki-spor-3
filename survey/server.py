@@ -1,14 +1,14 @@
 """Receives answers from the /survey skill.
 
 Run:  python3 survey/server.py   and in another window:  ngrok http --url=uniambic-kamari-unbarrelled.ngrok-free.dev 8000
-The answers end up in svar.jsonl.
+The answers end up in the answers table in the survey-db Postgres container (see README).
 """
-import json
-from datetime import datetime, timezone
+import subprocess
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from urllib.parse import parse_qs, urlparse
 
-OUT = "svar.jsonl"
+import db
+
 SKJEMA = "spor3-oslo-v1"
 KEYS = ["id", "Q1", "Q2", "Q3", "Q4", "Q5", "Q6"]
 MAX_BYTES = 4096
@@ -51,9 +51,11 @@ class Handler(BaseHTTPRequestHandler):
         r = clean(d)
         if not r:
             return self.reply(400, "Ugyldig skjema")
-        r["mottatt"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
-        with open(OUT, "a", encoding="utf-8") as f:
-            f.write(json.dumps(r, ensure_ascii=False) + "\n")
+        try:
+            db.insert({"id": r["id"], "schema": SKJEMA, **{k.lower(): r[k] for k in KEYS[1:]}})
+        except subprocess.CalledProcessError as e:
+            print("Insert failed:", e.stderr.strip())
+            return self.reply(500, "Kunne ikke lagre svaret")
         print("Received", r["id"])
         self.reply(200, "Takk for tilbakemeldingen!")
 
@@ -70,5 +72,6 @@ class Handler(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
+    db.init()
     print("Listening on http://localhost:8000")
     HTTPServer(("", 8000), Handler).serve_forever()

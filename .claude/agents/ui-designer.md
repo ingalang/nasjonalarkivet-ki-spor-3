@@ -30,7 +30,7 @@ different approaches, not variations in colour.
    neutral palette; this is a workshop tool, not a landing page.
 2. **Read the data shape.** For the survey, read
    `.claude/skills/survey/SKILL.md` (questions and the exact option strings) and
-   `survey/server.py` (what each row in `svar.jsonl` contains).
+   `survey/db.py` (what each row the dashboard gets from `/data` contains).
 3. **Use real content.** Use the exact Norwegian question and option strings.
    Mock data must be plausible for a workshop of 20–40 people, and free-text
    answers must read like real ones (no persondata). Where you shorten or

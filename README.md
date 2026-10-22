@@ -7,7 +7,7 @@ Dette repoet inneholder ressurser og oppgaver for spor 3 i Nasjonalarkivets KI-l
 ## Innhold
 
 - **Ressurser** – lesestoff, lenker og verktøy som brukes i sporet
-- **Oppgaver** – praktiske øvelser å jobbe med underveis
+- **[Oppgaver](oppgaver.md)** – praktiske øvelser å jobbe med underveis
 
 ## Kom i gang
 

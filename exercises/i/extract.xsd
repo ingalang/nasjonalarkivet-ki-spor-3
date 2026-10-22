@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Simplified schema for task I. Loosely inspired by Noark 5, not the real thing. -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="urn:example:extract"
+           targetNamespace="urn:example:extract"
+           elementFormDefault="qualified">
+
+  <xs:element name="extract">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="system" type="xs:string"/>
+        <xs:element name="created" type="xs:dateTime"/>
+        <xs:element name="caseFile" type="CaseFile" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CaseFile">
+    <xs:sequence>
+      <xs:element name="caseNumber" type="CaseNumber"/>
+      <xs:element name="title" type="NonEmpty"/>
+      <xs:element name="opened" type="xs:date"/>
+      <xs:element name="closed" type="xs:date" minOccurs="0"/>
+      <xs:element name="restricted" type="xs:boolean"/>
+      <xs:element name="record" type="Record" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:ID" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="Record">
+    <xs:sequence>
+      <xs:element name="title" type="NonEmpty"/>
+      <xs:element name="registered" type="xs:date"/>
+      <xs:element name="type" type="RecordType"/>
+      <xs:element name="document" type="Document" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Document">
+    <xs:sequence>
+      <xs:element name="file" type="xs:string"/>
+      <xs:element name="format" type="Format"/>
+      <xs:element name="checksum" type="Sha256"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="CaseNumber">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d{4}/\d{4}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="NonEmpty">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="RecordType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="incoming"/>
+      <xs:enumeration value="outgoing"/>
+      <xs:enumeration value="internal"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Format">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PDF/A-2b"/>
+      <xs:enumeration value="TIFF"/>
+      <xs:enumeration value="TXT"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Sha256">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9a-f]{64}"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

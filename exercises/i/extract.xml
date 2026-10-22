@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Made-up extract for task I. Valid against extract.xsd. Copy it and break the copy. -->
+<extract xmlns="urn:example:extract">
+  <system>Fiktivt sakssystem 3.2</system>
+  <created>2024-05-02T10:15:00</created>
+
+  <caseFile id="cf1">
+    <caseNumber>1998/0300</caseNumber>
+    <title>Ny skolestruktur i Åsen krets</title>
+    <opened>1998-02-27</opened>
+    <closed>1999-06-15</closed>
+    <restricted>false</restricted>
+    <record>
+      <title>Høringsuttalelse fra FAU</title>
+      <registered>1998-04-03</registered>
+      <type>incoming</type>
+      <document>
+        <file>dok/1998-0300-001.pdf</file>
+        <format>PDF/A-2b</format>
+        <checksum>3f1c9a1e0b6d4f2a8c7e5b3d1f0a9c8e7d6b5a4f3e2d1c0b9a8f7e6d5c4b3a21</checksum>
+      </document>
+    </record>
+    <record>
+      <title>Vedtak i kommunestyret</title>
+      <registered>1999-06-15</registered>
+      <type>outgoing</type>
+      <document>
+        <file>dok/1998-0300-002.pdf</file>
+        <format>PDF/A-2b</format>
+        <checksum>a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1</checksum>
+      </document>
+      <document>
+        <file>dok/1998-0300-002-vedlegg.tif</file>
+        <format>TIFF</format>
+        <checksum>0f1e2d3c4b5a69788796a5b4c3d2e1f00f1e2d3c4b5a69788796a5b4c3d2e1f0</checksum>
+      </document>
+    </record>
+  </caseFile>
+
+  <caseFile id="cf2">
+    <caseNumber>2001/1200</caseNumber>
+    <title>Søknad om utslippstillatelse</title>
+    <opened>2001-10-10</opened>
+    <restricted>true</restricted>
+  </caseFile>
+</extract>

@@ -4,3 +4,4 @@ tilbakemelding-*.md
 .worktrees/
 .agent/
 __pycache__/
+exercises/j/archive.db

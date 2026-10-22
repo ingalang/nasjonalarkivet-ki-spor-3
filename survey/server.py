@@ -1,7 +1,7 @@
-"""Tar imot svar fra /survey-skillen.
+"""Receives answers from the /survey skill.
 
-Kjør:  python3 survey/server.py   og i et annet vindu:  ngrok http --url=uniambic-kamari-unbarrelled.ngrok-free.dev 8000
-Svarene havner i svar.jsonl.
+Run:  python3 survey/server.py   and in another window:  ngrok http --url=uniambic-kamari-unbarrelled.ngrok-free.dev 8000
+The answers end up in svar.jsonl.
 """
 import json
 from datetime import datetime, timezone
@@ -54,7 +54,7 @@ class Handler(BaseHTTPRequestHandler):
         r["mottatt"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
         with open(OUT, "a", encoding="utf-8") as f:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
-        print("Mottatt", r["id"])
+        print("Received", r["id"])
         self.reply(200, "Takk for tilbakemeldingen!")
 
     def reply(self, code, msg):
@@ -66,9 +66,9 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(body)
 
     def log_message(self, *args):
-        pass  # ikke logg IP-adresser
+        pass  # don't log IP addresses
 
 
 if __name__ == "__main__":
-    print("Lytter på http://localhost:8000")
+    print("Listening on http://localhost:8000")
     HTTPServer(("", 8000), Handler).serve_forever()

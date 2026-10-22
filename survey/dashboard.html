@@ -273,7 +273,7 @@ function renderA(rs, fresh) {
     $("c" + q).textContent = `· ${items.length}`;
     $("a" + q).replaceChildren(...(items.length ? items.map(r => {
       const li = mk("li"); if (newest.has(r.id)) { li.append(mk("span", "badge", "Ny")); li.classList.add("flash"); }
-      li.append(document.createTextNode(r[q]));            // fritekst: alltid textContent
+      li.append(document.createTextNode(r[q]));            // free text: always textContent
       li.append(mk("span", "meta", `#${r.id} · ${time(r.mottatt)}`)); return li;
     }) : [mk("li", "empty", "Ingen svar ennå")]));
   }
@@ -311,7 +311,7 @@ function drawTick(rs, animate) {
   $("bTickLbl").textContent = showQ6 ? "Nyeste fritekstsvar" : "Dette vil de prøve agenten på";
   if (!items.length) { $("bNow").textContent = "Ingen fritekstsvar ennå"; $("bMeta").textContent = ""; $("bPrev").replaceChildren(); return; }
   const cur = items[tickI % items.length];
-  const now = $("bNow"); now.textContent = cur.t;           // fritekst: alltid textContent
+  const now = $("bNow"); now.textContent = cur.t;           // free text: always textContent
   if (animate) { now.classList.remove("in"); void now.offsetWidth; now.classList.add("in"); }
   $("bMeta").textContent = `${newest.has(cur.r.id) ? "Nytt · " : ""}${cur.q === "Q6" ? "Endre til neste gang · " : ""}${time(cur.r.mottatt)}`;
   $("bPrev").replaceChildren(...items.filter(x => x !== cur).slice(0, 3).map(x => { const li = mk("li", null, x.t); li.append(mk("span", null, time(x.r.mottatt))); return li; }));

@@ -1,7 +1,7 @@
-"""Live-dashboard for svar.jsonl.
+"""Live dashboard for svar.jsonl.
 
-Kjør:  python3 survey/dashboard.py   (åpner http://localhost:8001 i nettleseren)
-Kun localhost – svarene eksponeres ikke via ngrok.
+Run:  python3 survey/dashboard.py   (opens http://localhost:8001 in the browser)
+Localhost only – the answers are not exposed through ngrok.
 """
 import json
 import webbrowser
@@ -21,7 +21,7 @@ def read_rows():
         try:
             rows.append(json.loads(line))
         except json.JSONDecodeError:
-            pass  # halvskrevet linje, kommer med neste runde
+            pass  # half-written line, picked up on the next poll
     return rows
 
 
@@ -46,7 +46,7 @@ class Handler(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    print(f"Dashboard på http://localhost:{PORT}")
+    print(f"Dashboard on http://localhost:{PORT}")
     server = ThreadingHTTPServer(("127.0.0.1", PORT), Handler)
     webbrowser.open(f"http://localhost:{PORT}")
     server.serve_forever()

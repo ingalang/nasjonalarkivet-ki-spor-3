@@ -7,7 +7,7 @@ set -euo pipefail
 # checks it out in its own worktree under .worktrees/, fills in a template
 # from scripts/templates/ and starts the agent there. The default is the
 # brainstorm template and Codex (--codex); --claude starts Claude Code. <type> comes from the issue's labels:
-# bug → fix, otherwise feat.
+# bug → fix, documentation → docs, otherwise feat.
 # --no-start creates the worktree and prints the command instead of starting
 # the agent (used by the start-issue skill, which already runs in an agent).
 
@@ -32,8 +32,10 @@ BRANCH="$(git -C "$ROOT" branch -r --format='%(refname:short)' | grep -E "^origi
 BRANCH="${BRANCH#origin/}"
 if [[ -z "$BRANCH" ]]; then
   TITLE="$(gh issue view "$ISSUE" --json title --jq .title)"
+  LABELS="$(gh issue view "$ISSUE" --json labels --jq '.labels[].name')"
   TYPE="feat"
-  gh issue view "$ISSUE" --json labels --jq '.labels[].name' | grep -qx bug && TYPE="fix"
+  grep -qx documentation <<<"$LABELS" && TYPE="docs"
+  grep -qx bug <<<"$LABELS" && TYPE="fix"
   SLUG="$(printf '%s' "$TITLE" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/-/g; s/^-+//' | cut -c1-40 | sed -E 's/-+$//')"
   BRANCH="${TYPE}/${ISSUE}-${SLUG}"
 fi

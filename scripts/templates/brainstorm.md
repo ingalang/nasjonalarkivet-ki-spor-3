@@ -15,6 +15,7 @@ When the deliverable is analysis or documentation rather than code, it goes in a
 - Explore the issue and the code it touches. Where the issue is unclear, ask me questions **one at a time** before you propose anything.
 - Write the plan: approach, files that change, what gets tested, and open questions.
 - Push the branch (`git push -u origin {{BRANCH}}`) and open a **draft** PR into `main`. The title follows the commit format in `AGENTS.md`, and the description starts with `Closes #{{ISSUE}}`.
+  - GitHub can't open a PR for a branch with no new commits. If you have nothing to commit yet, make an empty commit first: `git commit --allow-empty -m "chore(#{{ISSUE}}): start work on the issue"`, then push again. A squash merge removes it.
 - Post the plan as **one** comment on the PR. When the plan changes, update that same comment.
 - **Stop here.** Don't write code until I have said the plan is approved.
 

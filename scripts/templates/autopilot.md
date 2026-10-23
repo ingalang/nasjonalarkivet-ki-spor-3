@@ -21,6 +21,7 @@ Take **#{{ISSUE}}** from issue to one finished **draft** PR without asking me an
 
 - Explore the issue and the code it touches.
 - Push the branch (`git push -u origin {{BRANCH}}`) and open a **draft** PR into `main`. The title follows the commit format in `AGENTS.md`, and the description starts with `Closes #{{ISSUE}}`.
+  - GitHub can't open a PR for a branch with no new commits. If you have nothing to commit yet, make an empty commit first: `git commit --allow-empty -m "chore(#{{ISSUE}}): start work on the issue"`, then push again. A squash merge removes it.
 - Post the plan as **one** comment on the PR: approach, files, what gets tested, and a section **"Decisions made on autopilot"**. Carry on without waiting.
 
 ## 2. Build

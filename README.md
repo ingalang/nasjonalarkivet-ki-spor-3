@@ -17,9 +17,15 @@ This repo holds resources and tasks for track 3 of the National Archives' AI lea
   - Windows: `winget install --id GitHub.cli`
   - macOS: `brew install gh`
   - Other: see [cli.github.com](https://cli.github.com)
-- **Codex or Claude Code**, installed and logged in:
-  - [Codex CLI](https://github.com/openai/codex): `npm install -g @openai/codex`, then `codex` to log in
-  - [Claude Code](https://docs.claude.com/en/docs/claude-code/setup): `npm install -g @anthropic-ai/claude-code`, then `claude` to log in
+- **Codex or Claude Code**, installed and logged in. Both need a paid plan, and neither needs Node.js.
+  - [Codex CLI](https://github.com/openai/codex) needs ChatGPT Plus, Pro, Business, Edu or Enterprise. Install it, then run `codex` to log in:
+    - macOS/Linux: `curl -fsSL https://chatgpt.com/codex/install.sh | sh`
+    - Windows (PowerShell): `powershell -ExecutionPolicy ByPass -c "irm https://chatgpt.com/codex/install.ps1 | iex"`
+  - [Claude Code](https://code.claude.com/docs/en/setup) needs Claude Pro, Max, Team or Enterprise. Install it, then run `claude` to log in:
+    - macOS/Linux: `curl -fsSL https://claude.ai/install.sh | bash`
+    - Windows (PowerShell): `irm https://claude.ai/install.ps1 | iex`
+  - Open a new terminal after installing, and check with `codex --version` or `claude --version`.
+  - If the installer is blocked, or you already have Node.js 22 or later, you can use npm instead: `npm install -g @openai/codex` or `npm install -g @anthropic-ai/claude-code`.
 
 ## Getting started
 

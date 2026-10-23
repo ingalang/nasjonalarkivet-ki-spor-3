@@ -5,7 +5,7 @@ Take **#{{ISSUE}}** from issue to one finished **draft** PR without asking me an
 ## Context
 
 1. Read `AGENTS.md`. Its rules apply to everything you do.
-2. Read the issue: `gh issue view {{ISSUE}} --comments`.
+2. Read the issue: `gh issue view {{ISSUE}} --json title,body,comments`.
 3. You are in your own worktree on the branch `{{BRANCH}}`. Stay on that branch.
 
 ## Ground rules

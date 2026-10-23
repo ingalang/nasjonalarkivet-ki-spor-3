@@ -14,7 +14,7 @@ No suitable repo or safe data? [`exercises/`](exercises/) has made-up material f
 
 ## 1. Everyone: teach the agent your repo
 
-[**1. Teach the agent your repo**](tasks/1-teach-the-agent-your-repo.md): have the agent explore your repo and write an `AGENTS.md`, then check that a new session knows how to run the tests.
+[**1. Teach the agent your repo**](tasks/1-teach-the-agent-your-repo.md): have the agent explore your repo and write an `AGENTS.md`, then check that a new session knows how to run the tests. Working with documents or data? The page has a variant for a folder of files.
 
 ---
 
@@ -33,7 +33,7 @@ Pick the lane that is closest to your everyday work. The letters stay the same w
 
 - [**A. Write tests for something that lacks them**](tasks/a-write-tests.md): tests for normal use and error cases, and at least one that fails when you break the code.
 - [**B. A small change, plan first**](tasks/b-small-change-plan-first.md): the agent plans before it codes, you correct the plan, then it does the work.
-- [**C. Explain something you didn't write**](tasks/c-explain-something.md): an explanation and a Mermaid diagram of a file, workflow or configuration.
+- [**C. Explain something you didn't write**](tasks/c-explain-something.md): an explanation and a Mermaid diagram of a file, workflow or configuration, or of one call across services.
 
 ### Platform, operations and security
 
@@ -53,3 +53,14 @@ You don't need a team repo for these. Use your own scripts in a folder with `git
 
 - [**F. From notes to a decision paper**](tasks/f-notes-to-decision-paper.md): from meeting notes to background, options and a recommendation.
 - [**G. Build a small tool**](tasks/g-build-a-small-tool.md): a simple HTML page you can open in the browser, changed three times.
+
+---
+
+## 3. Wrap up: what did it give you?
+
+Every group ends by answering four questions, briefly and with concrete examples:
+
+1. **The need.** What did you want to get done?
+2. **The agent.** What did the agent actually do?
+3. **The check.** How did you check that the result was right, and what did you find?
+4. **Next step.** What would it take to use this in your job?

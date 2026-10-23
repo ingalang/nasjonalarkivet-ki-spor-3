@@ -8,6 +8,8 @@ Help me find a solution for **#{{ISSUE}}**, and build it once I have approved th
 2. Read the issue: `gh issue view {{ISSUE}} --comments`.
 3. You are in your own worktree on the branch `{{BRANCH}}`. Stay on that branch.
 
+When the deliverable is analysis or documentation rather than code, it goes in a Markdown file in the PR. Instead of running tests, check every claim against its source and give a reference (file and line, or document).
+
 ## 1. Plan (stop for approval)
 
 - Explore the issue and the code it touches. Where the issue is unclear, ask me questions **one at a time** before you propose anything.

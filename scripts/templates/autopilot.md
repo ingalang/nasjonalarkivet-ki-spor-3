@@ -14,6 +14,7 @@ Take **#{{ISSUE}}** from issue to one finished **draft** PR without asking me an
 - **Write down every decision**, with the options and why you chose as you did. That replaces the questions you would have asked me.
 - **Done means every acceptance criterion in the issue is met.** If the issue has none, write your own in the plan comment. The PR description shows evidence for each one.
 - **Stay inside the issue.** Note anything outside it as a follow-up, but don't build it.
+- **Analysis or documentation?** The deliverable goes in a Markdown file in the PR. Instead of running tests, check every claim against its source and give a reference (file and line, or document).
 - **If you are blocked** (missing access, an empty issue, something down), finish what you can, write the blocker at the top of the PR description and stop.
 
 ## 1. Plan

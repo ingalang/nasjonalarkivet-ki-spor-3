@@ -8,6 +8,25 @@ Point the agent at a file, a workflow or a configuration you find hard to follow
 
 **Nothing at hand?** Use [`exercises/c/`](../exercises/c/): a fictional Argo workflow.
 
+## Variant: trace one call across services
+
+For a large codebase spread over several repos, where the docs are out of date and the people who wrote it have left. Pick **one** call between two services, for example how a request is authorised from the gateway to the service that answers it, and follow it end to end.
+
+- **Several repos?** Clone them side by side in one folder and start the agent in that folder.
+- **Jira and Confluence** are useful extra context, but you don't need them to start. The code is the source of truth.
+- **The deliverable** is a Markdown file with:
+  - a plain-language description of the call
+  - a Mermaid sequence diagram
+  - a code reference (`repo/file:line`) for every step
+  - open questions: what the agent couldn't find or confirm
+
+```text
+Follow one call from <service A> to <service B>: <what the call does>. Where is the token or
+identity checked, by whom, and what happens if the check fails? Write the result to
+docs/<name>.md with a description, a Mermaid sequenceDiagram, a repo/file:line reference for every
+step, and a list of open questions. Mark anything you couldn't confirm in the code.
+```
+
 ## Steps
 
 1. Pick something you have avoided touching because you don't fully understand it.

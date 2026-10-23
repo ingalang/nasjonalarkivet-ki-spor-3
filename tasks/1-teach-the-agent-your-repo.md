@@ -29,6 +29,19 @@ from the file names.
 Which of the lines in AGENTS.md would you have figured out anyway, without the file?
 ```
 
+## Variant: documents and data
+
+Working with documents, spreadsheets or data rather than code? Build, test and lint don't fit. Start the agent in a folder with your material instead (copies or made-up files, see [Data and the secure zone](../tasks.md#data-and-the-secure-zone)), and teach it the folder.
+
+1. Ask: "What is in this folder, and what do you think each file is for?"
+2. Correct what it got wrong, then have it write an `AGENTS.md` with what the files are, where they come from, the terms you use, and what it must never change.
+3. Start a **new** session and ask it to find something specific, for example "Which file has the budget for 2024?"
+
+```text
+Write a short AGENTS.md for this folder: what each kind of file is, where it comes from, words and
+abbreviations we use, and which files are originals that must never be changed. At most 30 lines.
+```
+
 ## Watch out for
 
 - **Guessed commands.** The agent may write `npm test` or `pytest` because it is common, not because it is true here. Check that every command in `AGENTS.md` actually runs.
@@ -37,4 +50,4 @@ Which of the lines in AGENTS.md would you have figured out anyway, without the f
 
 ## Done when
 
-The new session answers correctly without searching.
+The new session answers correctly without searching. For the documents and data variant: it finds the right file at the first attempt.

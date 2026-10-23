@@ -32,3 +32,5 @@ Copy `extract.xml` and put in errors on purpose, for example:
 - a missing `<title>`
 - a format that isn't in the list
 - a checksum with uppercase letters
+
+Put each error in its own copy of `extract.xml`, or in a different record. Once a record has an element missing or out of order, the validator stops checking the rest of that record, so a second error in it isn't reported.

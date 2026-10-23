@@ -1,0 +1,16 @@
+2026-09-15T00:00:12Z INFO  [search-1] [o.e.c.r.a.DiskThresholdMonitor] disk usage 61% on [search-1], below low watermark [85%]
+2026-09-15T00:00:12Z INFO  [search-2] [o.e.c.r.a.DiskThresholdMonitor] disk usage 71% on [search-2], below low watermark [85%]
+2026-09-15T01:00:03Z INFO  [search-1] [o.e.c.m.MetadataCreateIndexService] creating index [records-2026-v2], shards [1]/[0]
+2026-09-15T01:00:03Z INFO  [search-2] [o.e.c.r.a.AllocationService] shard [records-2026-v2][0] allocated to [search-2]
+2026-09-15T01:00:05Z INFO  [search-1] [o.e.i.r.TransportReindexAction] reindex [records-2026] -> [records-2026-v2] started, task [reindex:88412]
+2026-09-15T02:00:00Z INFO  [search-1] [o.e.s.SnapshotsService] snapshot [nightly-2026-09-15] started
+2026-09-15T02:00:41Z WARN  [search-1] [o.e.s.SnapshotsService] snapshot [nightly-2026-09-15] slow: repository [s3-new] took 38s to respond
+2026-09-15T02:14:09Z INFO  [search-1] [o.e.s.SnapshotsService] snapshot [nightly-2026-09-15] completed
+2026-09-15T05:41:30Z INFO  [search-2] [o.e.c.r.a.DiskThresholdMonitor] low disk watermark [85%] exceeded on [search-2], replicas will not be assigned to this node
+2026-09-15T06:02:17Z INFO  [search-1] [o.e.i.r.TransportReindexAction] reindex task [reindex:88412] completed, created [41213877], failures [0]
+2026-09-15T07:23:02Z WARN  [search-2] [o.e.c.r.a.DiskThresholdMonitor] high disk watermark [90%] exceeded on [search-2], shards will be relocated away from this node
+2026-09-15T07:23:02Z INFO  [search-2] [o.e.c.r.a.DiskThresholdMonitor] no shards can be relocated: [search-1] has no replica slots for [records-2026][0]
+2026-09-15T07:41:15Z INFO  [search-1] [o.e.c.m.MetadataMappingService] [frontend-sessions] update_mapping [_doc]
+2026-09-15T08:31:04Z WARN  [search-2] [o.e.c.r.a.DiskThresholdMonitor] flood stage disk watermark [95%] exceeded on [search-2], all indices on this node will be marked read-only
+2026-09-15T08:31:04Z INFO  [search-2] [o.e.c.m.MetadataUpdateSettingsService] updating [index.blocks.read_only_allow_delete] to [true] on indices [records-2026, records-2026-v2]
+2026-09-15T09:31:04Z WARN  [search-2] [o.e.c.r.a.DiskThresholdMonitor] flood stage disk watermark [95%] exceeded on [search-2], all indices on this node will be marked read-only

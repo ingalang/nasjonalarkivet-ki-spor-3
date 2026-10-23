@@ -1,0 +1,22 @@
+2026-09-15T06:58:40Z INFO  indexer 2.8.1 queue=publish-events depth=4
+2026-09-15T07:00:10Z INFO  bulk index records-2026: 34 docs ok in 212ms
+2026-09-15T07:01:10Z INFO  bulk index records-2026: 36 docs ok in 198ms
+2026-09-15T07:12:44Z WARN  token refresh against idp.example.internal took 2.4s (threshold 2s)
+2026-09-15T07:30:10Z INFO  bulk index records-2026: 35 docs ok in 240ms
+2026-09-15T07:41:52Z WARN  frontend-sessions: connection reset by peer, retrying (1/5)
+2026-09-15T07:41:53Z INFO  frontend-sessions: retry ok
+2026-09-15T08:00:10Z INFO  bulk index records-2026: 35 docs ok in 251ms
+2026-09-15T08:12:03Z WARN  TLS certificate for search.example.internal expires in 29 days (2026-10-14)
+2026-09-15T08:30:10Z INFO  bulk index records-2026: 34 docs ok in 263ms
+2026-09-15T08:31:10Z WARN  bulk index records-2026: 35 docs failed: 429 cluster_block_exception index [records-2026] blocked by: [TOO_MANY_REQUESTS/12/disk usage exceeded flood-stage watermark, index has read-only-allow-delete block], retrying (1/5)
+2026-09-15T08:31:12Z WARN  bulk index records-2026: 35 docs failed: 429 cluster_block_exception, retrying (2/5)
+2026-09-15T08:31:16Z WARN  bulk index records-2026: 35 docs failed: 429 cluster_block_exception, retrying (3/5)
+2026-09-15T08:31:24Z WARN  bulk index records-2026: 35 docs failed: 429 cluster_block_exception, retrying (4/5)
+2026-09-15T08:31:40Z WARN  bulk index records-2026: 35 docs failed: 429 cluster_block_exception, retrying (5/5)
+2026-09-15T08:31:40Z ERROR bulk index records-2026: giving up after 5 retries, batch returned to queue
+2026-09-15T08:32:10Z WARN  bulk index records-2026: 35 docs failed: 429 cluster_block_exception, retrying (1/5)
+2026-09-15T08:32:40Z ERROR bulk index records-2026: giving up after 5 retries, batch returned to queue
+2026-09-15T08:45:00Z INFO  indexer 2.8.1 queue=publish-events depth=424
+2026-09-15T09:00:00Z INFO  indexer 2.8.1 queue=publish-events depth=874
+2026-09-15T09:00:10Z WARN  bulk index records-2026: 35 docs failed: 429 cluster_block_exception, retrying (1/5)
+2026-09-15T09:00:40Z ERROR bulk index records-2026: giving up after 5 retries, batch returned to queue

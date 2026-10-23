@@ -25,7 +25,7 @@ Pick the lane that is closest to your everyday work. The letters stay the same w
 | Lane | For you who … | Tasks |
 |---|---|---|
 | [Product development](#product-development) | develop Digitalarkivet's products | A–C |
-| [Platform, operations and security](#platform-operations-and-security) | run the platform, pipelines and access | D–E |
+| [Platform, operations and security](#platform-operations-and-security) | run the platform, pipelines and access | D, E, L |
 | [Script and data automation](#script-and-data-automation) | write your own scripts, SQL or XML to get the job done | H–K |
 | [No code](#no-code) | want the agent to help with text, overviews and small tools | F–G |
 
@@ -39,6 +39,7 @@ Pick the lane that is closest to your everyday work. The letters stay the same w
 
 - [**D. Review a PR or a workflow**](tasks/d-review-pr-or-workflow.md): look for secrets, broad permissions and unpinned actions, and sort what it finds.
 - [**E. Write a diagnostic script**](tasks/e-diagnostic-script.md): a script that only reads the status of a system you run.
+- [**L. Troubleshoot from logs and metrics**](tasks/l-troubleshoot-from-signals.md): from a known symptom to a timeline, hypotheses with evidence, and the next check.
 
 ### Script and data automation
 

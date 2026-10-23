@@ -1,0 +1,8 @@
+# Changes and scheduled jobs, 2026-09-14 to 2026-09-15 (UTC)
+# time               | type     | who            | what
+2026-09-14T14:10Z    | deploy   | team-search    | indexer 2.8.1: retry bulk requests up to 5 times, then put the batch back on the queue
+2026-09-14T15:30Z    | config   | team-platform  | search cluster: snapshot repository moved to new bucket
+2026-09-15T01:00Z    | cron     | reindex-records| nightly reindex of records-2026 into records-2026-v2 (new mapping), started
+2026-09-15T06:02Z    | cron     | reindex-records| reindex finished, 41 213 877 docs. Alias switch skipped: --switch-alias not set
+2026-09-15T07:40Z    | deploy   | team-web       | frontend 4.12.0: new search result page
+2026-09-15T07:46Z    | deploy   | team-web       | frontend 4.12.0: rollout complete, all pods ready

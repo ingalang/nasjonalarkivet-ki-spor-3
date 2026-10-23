@@ -12,5 +12,6 @@ Made-up practice material for the [tasks](../tasks.md), for those who don't have
 | [i/](i/) | [I. Validate XML](../tasks/i-validate-xml-extract.md) | A schema and an XML extract |
 | [j/](j/) | [J. Readable SQL](../tasks/j-readable-sql-query.md) | An unreadable query and a test database |
 | [k/](k/) | [K. Automate a task](../tasks/k-automate-recurring-task.md) | A folder of files with messy names |
+| [l/](l/) | [L. Troubleshoot](../tasks/l-troubleshoot-from-signals.md) | A made-up incident: ticket, logs, metrics and changes |
 
 Start the agent in the folder for your task. Use `git status` and `git diff` to see what it changed, and `git restore .` to start over.

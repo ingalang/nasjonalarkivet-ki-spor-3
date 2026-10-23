@@ -2,60 +2,6 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Survey: Database",
-      "type": "shell",
-      "command": "podman start ${input:surveyDbContainer} 2>/dev/null || podman run -d --name ${input:surveyDbContainer} -e POSTGRES_PASSWORD=survey -v ${input:surveyDbVolume}:/var/lib/postgresql/data docker.io/library/postgres:17; until podman exec ${input:surveyDbContainer} pg_isready -U postgres -q; do sleep 1; done; echo '${input:surveyDbContainer} is ready'",
-      "problemMatcher": []
-    },
-    {
-      "label": "Survey: Start server",
-      "type": "shell",
-      "command": "python3 survey/server.py",
-      "options": {
-        "env": {
-          "SURVEY_DB_CONTAINER": "${input:surveyDbContainer}"
-        }
-      },
-      "dependsOn": "Survey: Database",
-      "isBackground": true,
-      "problemMatcher": []
-    },
-    {
-      "label": "Survey: Ngrok",
-      "type": "shell",
-      "command": "ngrok http --url=uniambic-kamari-unbarrelled.ngrok-free.dev 8000",
-      "isBackground": true,
-      "problemMatcher": []
-    },
-    {
-      "label": "Survey: Dashboard",
-      "type": "shell",
-      "command": "python3 survey/dashboard.py",
-      "options": {
-        "env": {
-          "SURVEY_DB_CONTAINER": "${input:surveyDbContainer}"
-        }
-      },
-      "isBackground": true,
-      "problemMatcher": []
-    },
-    {
-      "label": "Survey: Free ports",
-      "type": "shell",
-      "command": "pids=$(lsof -ti tcp:8000,8001 -sTCP:LISTEN); [ -z \"$pids\" ] && echo 'Ports 8000 and 8001 are free' || { kill $pids && echo \"Killed $pids\"; }",
-      "problemMatcher": []
-    },
-    {
-      "label": "Survey: Start",
-      "dependsOn": [
-        "Survey: Free ports",
-        "Survey: Start server",
-        "Survey: Ngrok",
-        "Survey: Dashboard"
-      ],
-      "problemMatcher": []
-    },
-    {
       "label": "Codex: Reply to survey",
       "type": "shell",
       "command": "codex survey",
@@ -66,20 +12,6 @@
       "type": "shell",
       "command": "claude \"/survey\"",
       "problemMatcher": []
-    }
-  ],
-  "inputs": [
-    {
-      "id": "surveyDbContainer",
-      "type": "promptString",
-      "description": "Podman container name for the survey database",
-      "default": "nasjonalarkivet-survey-db"
-    },
-    {
-      "id": "surveyDbVolume",
-      "type": "promptString",
-      "description": "Podman volume for the survey database (only used when the container is created)",
-      "default": "nasjonalarkivet-survey-db-data"
     }
   ]
 }

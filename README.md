@@ -31,27 +31,27 @@ This repo holds resources and tasks for track 3 of the National Archives' AI lea
 
 1. Log in to GitHub: `gh auth login`, and check with `gh auth status`.
 2. Clone the repo: `gh repo clone olemp/nasjonalarkivet-ki-spor-3`
-3. Read through the [resources](resources.md)
-4. Get going on the [tasks](tasks.md)
+3. Pick a nickname for the day. In this folder, run `claude "/survey start"` or `codex "survey start"`.
+   Choose something that is not your name, and use the same nickname for the rest of the day.
+4. Read through the [resources](resources.md)
+5. Get going on the [tasks](tasks.md)
 
 ## Feedback
 
-Give us anonymous feedback after the course:
-
-Run one of these in this folder:
+Give us feedback at the end of the day, under your nickname. Run one of these in this folder:
 
 **Codex**
 
 ```bash
-codex survey
+codex "survey slutt"
 ```
 
 **Claude Code**
 
 ```bash
-claude /survey
+claude "/survey slutt"
 ```
 
-**ChatGPT:** Paste the contents of [`.claude/skills/survey/SKILL.md`](.claude/skills/survey/SKILL.md) into a new conversation.
+**ChatGPT or no terminal:** Paste the contents of [`.claude/skills/survey/SKILL.md`](.claude/skills/survey/SKILL.md) into a new conversation and write `/survey slutt`. You will get a link to click instead of a command.
 
 Questions or suggestions? Open an issue or contact the course lead.

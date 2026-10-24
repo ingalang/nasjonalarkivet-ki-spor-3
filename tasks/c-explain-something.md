@@ -61,3 +61,7 @@ What in this file would surprise someone who changes it for the first time?
 ## Done when
 
 You have found one thing you didn't know, or one mistake in the explanation.
+
+## When you are done
+
+In your agent, run `/survey oppgave C` (Codex and Copilot CLI: `survey oppgave C`). Two short questions, under a minute.

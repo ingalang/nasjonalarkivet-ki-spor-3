@@ -46,3 +46,7 @@ it should be used.
 ## Done when
 
 A colleague understands the query without asking you.
+
+## When you are done
+
+In your agent, run `/survey oppgave J` (Codex and Copilot CLI: `survey oppgave J`). Two short questions, under a minute.

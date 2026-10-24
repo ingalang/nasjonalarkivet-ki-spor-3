@@ -59,9 +59,12 @@ You don't need a team repo for these. Use your own scripts in a folder with `git
 
 ## 3. Wrap up: what did it give you?
 
-Every group ends by answering four questions, briefly and with concrete examples:
+Everyone ends by answering these questions, briefly and with concrete examples:
 
 1. **The need.** What did you want to get done?
 2. **The agent.** What did the agent actually do?
 3. **The check.** How did you check that the result was right, and what did you find?
 4. **Next step.** What would it take to use this in your job?
+
+After each task, also run `/survey oppgave <letter>` (Codex: `survey oppgave <letter>`), as the task
+page says at the bottom. At the end of the day, run `/survey slutt`.

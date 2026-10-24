@@ -76,3 +76,7 @@ You have a timeline and hypotheses where you have checked at least one piece of 
 **Not part of the exercise:** the fix (switch the alias, delete the old index, check that the block is lifted), and why the reindex job runs without `--switch-alias`.
 
 </details>
+
+## When you are done
+
+In your agent, run `/survey oppgave L` (Codex and Copilot CLI: `survey oppgave L`). Two short questions, under a minute.

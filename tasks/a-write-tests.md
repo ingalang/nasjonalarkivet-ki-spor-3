@@ -40,3 +40,7 @@ Write the tests, following how the existing tests in this repo are written. Run 
 ## Done when
 
 At least one test fails if you deliberately break the code.
+
+## When you are done
+
+In your agent, run `/survey oppgave A` (Codex and Copilot CLI: `survey oppgave A`). Two short questions, under a minute.

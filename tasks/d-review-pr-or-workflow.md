@@ -40,3 +40,7 @@ For finding <n>: how would someone actually exploit this? What would they need a
 ## Done when
 
 You have sorted the findings into *real*, *false alarm* and *unsure*.
+
+## When you are done
+
+In your agent, run `/survey oppgave D` (Codex and Copilot CLI: `survey oppgave D`). Two short questions, under a minute.

@@ -31,12 +31,17 @@ This repo holds resources and tasks for track 3 of the National Archives' AI lea
 
 1. Log in to GitHub: `gh auth login`, and check with `gh auth status`.
 2. Clone the repo: `gh repo clone olemp/nasjonalarkivet-ki-spor-3`
+   On Windows, Git checks out `.agents/skills` as a text file unless `core.symlinks` is on. Write
+   `codex "survey start"` as above (it works through `AGENTS.md`); `$survey` and `$start-issue` do not.
 3. Pick a nickname for the day. In this folder, run `claude "/survey start"` or `codex "survey start"`.
    Choose something that is not your name, and use the same nickname for the rest of the day.
 4. Read through the [resources](resources.md)
 5. Get going on the [tasks](tasks.md)
 
 ## Feedback
+
+After each task, run the line at the bottom of the task page, for example `/survey oppgave H`
+(Codex: `survey oppgave H`). It takes under a minute.
 
 Give us feedback at the end of the day, under your nickname. Run one of these in this folder:
 

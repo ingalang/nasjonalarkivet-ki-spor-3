@@ -45,3 +45,7 @@ Group the errors by type and show the count, so a file with a thousand errors is
 ## Done when
 
 The script finds an error you put in on purpose.
+
+## When you are done
+
+In your agent, run `/survey oppgave I` (Codex and Copilot CLI: `survey oppgave I`). Two short questions, under a minute.

@@ -51,3 +51,7 @@ abbreviations we use, and which files are originals that must never be changed. 
 ## Done when
 
 The new session answers correctly without searching. For the documents and data variant: it finds the right file at the first attempt.
+
+## When you are done
+
+In your agent, run `/survey oppgave 1` (Codex and Copilot CLI: `survey oppgave 1`). Two short questions, under a minute.

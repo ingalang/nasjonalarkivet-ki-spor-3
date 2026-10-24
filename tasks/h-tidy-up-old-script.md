@@ -44,3 +44,7 @@ and the new version on the test file and compares the output.
 ## Done when
 
 The new version gives the same result as the old one on the test file.
+
+## When you are done
+
+In your agent, run `/survey oppgave H` (Codex and Copilot CLI: `survey oppgave H`). Two short questions, under a minute.

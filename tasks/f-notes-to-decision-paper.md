@@ -41,3 +41,7 @@ Which claims in the paper are not in the notes? Mark them.
 ## Done when
 
 The paper is good enough after at most two rounds of corrections.
+
+## When you are done
+
+In your agent, run `/survey oppgave F` (Codex and Copilot CLI: `survey oppgave F`). Two short questions, under a minute.

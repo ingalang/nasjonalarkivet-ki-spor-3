@@ -38,3 +38,7 @@ Change: <what>. Don't change anything else.
 ## Done when
 
 The page works, and you have asked the agent to change it three times.
+
+## When you are done
+
+In your agent, run `/survey oppgave G` (Codex and Copilot CLI: `survey oppgave G`). Two short questions, under a minute.

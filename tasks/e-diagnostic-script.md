@@ -39,3 +39,7 @@ Make the script fail clearly if a tool it needs (kubectl, jq, openssl) is missin
 ## Done when
 
 You have read the whole script before running it.
+
+## When you are done
+
+In your agent, run `/survey oppgave E` (Codex and Copilot CLI: `survey oppgave E`). Two short questions, under a minute.

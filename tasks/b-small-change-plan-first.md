@@ -41,3 +41,7 @@ Go through the diff with me, file by file. Why is each change needed?
 ## Done when
 
 Tests and linting are green, and you understand every line of the diff.
+
+## When you are done
+
+In your agent, run `/survey oppgave B` (Codex and Copilot CLI: `survey oppgave B`). Two short questions, under a minute.

@@ -45,3 +45,7 @@ What happens if the script stops halfway? Can I run it again safely?
 ## Done when
 
 The dry run shows the right result before you run it for real.
+
+## When you are done
+
+In your agent, run `/survey oppgave K` (Codex and Copilot CLI: `survey oppgave K`). Two short questions, under a minute.

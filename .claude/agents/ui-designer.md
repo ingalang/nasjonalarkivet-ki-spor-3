@@ -13,8 +13,7 @@ one private artifact. You never edit the project's code, commit or push.
 
 The task prompt must give you:
 
-- the screen in question and the path to its code (for example
-  `survey/dashboard.html`);
+- the screen in question and the path to its code;
 - what is wrong with it today, or what the options should explore;
 - constraints already decided (for example "no new dependency", "single HTML
   file served by a Python stdlib server").
@@ -29,8 +28,9 @@ different approaches, not variations in colour.
    Where there is no existing page, use Inter from Google Fonts and a quiet,
    neutral palette; this is a workshop tool, not a landing page.
 2. **Read the data shape.** For the survey, read
-   `.claude/skills/survey/SKILL.md` (questions and the exact option strings) and
-   `survey/db.py` (what each row the dashboard gets from `/data` contains).
+   `.claude/skills/survey/SKILL.md` (questions and the exact option strings). The
+   survey's screens (the projector wall, the facilitator pages, the web form) live
+   in the hosted survey service (workshop-survey), not in this repo.
 3. **Use real content.** Use the exact Norwegian question and option strings.
    Mock data must be plausible for a workshop of 20–40 people, and free-text
    answers must read like real ones (no persondata). Where you shorten or

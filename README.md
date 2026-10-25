@@ -57,6 +57,17 @@ codex "survey slutt"
 claude "/survey slutt"
 ```
 
-**ChatGPT or no terminal:** Paste the contents of [`.claude/skills/survey/SKILL.md`](.claude/skills/survey/SKILL.md) into a new conversation and write `/survey slutt`. You will get a link to click instead of a command.
+**Claude or ChatGPT in the browser:** Paste this line into a new conversation; the assistant asks
+the questions and sends your answers:
+
+```text
+Les og følg https://survey.metapol.no/api/prompt/ev_7S4DPScVIXtG9SSrrUonAmNDFD4WWZ6vV4DHDr7wBjM
+```
+
+In Claude you can instead add `https://survey.metapol.no/api/mcp/ev_7S4DPScVIXtG9SSrrUonAmNDFD4WWZ6vV4DHDr7wBjM` as a connector (Settings →
+Connectors → Add custom connector) and ask it to give feedback on the course.
+
+**No AI at hand:** Open the form in your browser, or scan the QR code on the screen:
+<https://survey.metapol.no/f/spor3-slutt-v2?k=ev_7S4DPScVIXtG9SSrrUonAmNDFD4WWZ6vV4DHDr7wBjM>
 
 Questions or suggestions? Open an issue or contact the course lead.

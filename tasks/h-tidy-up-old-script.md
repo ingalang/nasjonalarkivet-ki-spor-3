@@ -20,6 +20,29 @@ Take a script you use often, for example an extract from Noark 5. Ask the agent 
 4. Ask the agent to explain the script, then to tidy it up.
 5. Run the new version on the same file and compare the output with the old one.
 
+**Let it run with `/goal`.** Save and commit the old output yourself before the agent starts, so it can't regenerate it from its own version. For the exercise files, in `exercises/h/`:
+
+```bash
+python3 extract.py cases.csv 1990 1999 > old-1990-1999.txt
+python3 extract.py cases.csv 1990 > old-1990.txt
+python3 extract.py cases.csv 2000 2005 > old-2000-2005.txt
+git add old-*.txt && git commit -m "test: old outputs of extract.py" && git tag old-outputs
+```
+
+Then give the agent a condition it can't talk its way around:
+
+```text
+/goal Tidy extract.py and add a test that compares its output with the old-*.txt files. Met only when, after the
+last edit, all three runs are shown with diff exiting 0:
+python3 extract.py cases.csv 1990 1999 | diff - old-1990-1999.txt
+python3 extract.py cases.csv 1990 | diff - old-1990.txt
+python3 extract.py cases.csv 2000 2005 | diff - old-2000-2005.txt
+and git diff --stat old-outputs lists only extract.py and the new test file (the old-*.txt files stay as
+committed). Stop after 15 turns.
+```
+
+`git diff --stat old-outputs` compares with the tagged commit, so it works whether or not the agent has committed. Each range catches something different: the open-ended one the missing end year (the report header ends with a dash), and 2000–2005 the undated row that is still counted as skipped outside its range. See [Keep the agent going with `/goal`](../resources.md#keep-the-agent-going-with-goal).
+
 ## Prompts to try
 
 ```text

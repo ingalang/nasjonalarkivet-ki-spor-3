@@ -32,6 +32,14 @@ what fails.
 Go through the diff with me, file by file. Why is each change needed?
 ```
 
+Once the plan is approved, you can let it finish with `/goal`. Replace `<test command>` and `<lint command>` with your repo's own (see its `AGENTS.md` or `README`); with no tests, name the script or command that shows the change works:
+
+```text
+/goal The approved plan is implemented. Met only when <test command> and <lint command> are shown passing after the last
+commit, git diff --stat origin/main...HEAD touches only the files in the plan, and no existing test is changed.
+Stop after 20 turns.
+```
+
 ## Watch out for
 
 - **Scope creep.** The agent likes to tidy up nearby code. Ask it to keep the diff to what the task needs.

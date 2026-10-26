@@ -58,9 +58,11 @@ ISSUE="$ISSUE" BRANCH="$BRANCH" awk '{
 
 PROMPT="Follow the instructions in .agent/instructions.md."
 echo "✅ #$ISSUE → $WT ($BRANCH, $TEMPLATE)"
-if [[ "$TEMPLATE" == autopilot && "$AGENT" == codex ]]; then
-  echo "Tip: keep Codex going until it is done by pasting this once the session is open:"
-  echo "  /goal Finish #$ISSUE: every acceptance criterion in the issue is met and the draft PR is handed over"
+if [[ "$TEMPLATE" == autopilot ]]; then
+  GOAL="/goal Finish #$ISSUE as .agent/instructions.md says. Met only when this session shows, after the last commit: gh pr view with isDraft true and a body starting with \"Closes #$ISSUE\"; every acceptance criterion ticked with evidence; the checks AGENTS.md asks for shown passing (with no test suite: every changed script run once); git status clean and the branch pushed. Never merge, mark the PR ready or weaken a test. Stop after 30 turns."
+  [[ "$AGENT" == codex ]] && GOAL="$GOAL Before you mark the goal complete, print the evidence for each point."
+  echo "Tip: to keep the agent going until the PR is done, paste this once the session is open:"
+  echo "  $GOAL"
 fi
 if [[ "$START" == false ]]; then
   printf 'Start the agent in a new terminal window:\n  cd "%s"; %s "%s"\n' "$WT" "$AGENT" "$PROMPT"

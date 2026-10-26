@@ -16,7 +16,7 @@ Create a worktree for a GitHub issue with `scripts/start-issue.sh`.
    `& "$env:ProgramFiles\Git\bin\bash.exe" scripts/start-issue.sh <n> ... --no-start`
 
 3. If the command fails, show the error and stop. Common causes: `gh` is not logged in (`gh auth login`), or the issue doesn't exist.
-4. Otherwise, show the user the worktree folder and branch, and the command the script printed for starting the agent in a new terminal window. Briefly explain what happens in the mode:
+4. Otherwise, show the user the worktree folder and branch, and the command the script printed for starting the agent in a new terminal window. In autopilot mode, also show the `/goal` line the script printed, word for word, to paste once the new session is open. Briefly explain what happens in the mode:
    - **brainstorm**: the agent makes a plan, opens a draft PR with the plan and waits for approval before writing code.
    - **autopilot**: the agent goes from issue to finished draft PR without asking.
 

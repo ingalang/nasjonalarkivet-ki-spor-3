@@ -6,7 +6,17 @@ For [task H. Tidy up and test an old script](../../tasks/h-tidy-up-old-script.md
 
 ```sh
 python3 extract.py cases.csv 1990 1999
-python3 extract.py cases.csv 1990 1999 > old-output.txt   # save before the agent changes anything
 ```
+
+Save the old output before the agent changes anything, for three ranges that each exercise a different quirk:
+
+```sh
+python3 extract.py cases.csv 1990 1999 > old-1990-1999.txt
+python3 extract.py cases.csv 1990 > old-1990.txt
+python3 extract.py cases.csv 2000 2005 > old-2000-2005.txt
+git add old-*.txt && git commit -m "test: old outputs of extract.py" && git tag old-outputs
+```
+
+The task's `/goal` compares with these files and with the `old-outputs` tag.
 
 The tidy version must give exactly the same output. The test file has some awkward cases that the old script handles (or gets away with): æøå, a missing date, an empty archive part, an archive part with spaces and lowercase letters, `n`/`ja` instead of `N`/`J`, and a long title.

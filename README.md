@@ -67,7 +67,7 @@ Les og følg https://survey.metapol.no/api/prompt/ev_7S4DPScVIXtG9SSrrUonAmNDFD4
 In Claude you can instead add `https://survey.metapol.no/api/mcp/ev_7S4DPScVIXtG9SSrrUonAmNDFD4WWZ6vV4DHDr7wBjM` as a connector (Settings →
 Connectors → Add custom connector) and ask it to give feedback on the course.
 
-**No AI at hand:** Open the form in your browser, or scan the QR code on the screen:
+**No AI at hand:** Open the form in your browser:
 <https://survey.metapol.no/f/spor3-slutt-v2?k=ev_7S4DPScVIXtG9SSrrUonAmNDFD4WWZ6vV4DHDr7wBjM>
 
 Questions or suggestions? Open an issue or contact the course lead.

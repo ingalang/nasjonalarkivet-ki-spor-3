@@ -21,7 +21,7 @@ Explain what this repo does, and how I build, test and lint it. Show me the comm
 
 ```text
 Write a short AGENTS.md with how to build, test and lint, and the conventions you see in the code
-(naming, folder layout, commit messages). At most 30 lines. Only include what you could not guess
+(naming, folder layout, commit messages). No more than 100–150 lines. Only include what you could not guess
 from the file names.
 ```
 
@@ -39,13 +39,13 @@ Working with documents, spreadsheets or data rather than code? Build, test and l
 
 ```text
 Write a short AGENTS.md for this folder: what each kind of file is, where it comes from, words and
-abbreviations we use, and which files are originals that must never be changed. At most 30 lines.
+abbreviations we use, and which files are originals that must never be changed. No more than 100–150 lines.
 ```
 
 ## Watch out for
 
 - **Guessed commands.** The agent may write `npm test` or `pytest` because it is common, not because it is true here. Check that every command in `AGENTS.md` actually runs.
-- **Too long.** A long `AGENTS.md` is read every session and costs attention. Remove what is obvious from the code.
+- **Too long.** A long `AGENTS.md` is read every session and costs attention. Stay under 150 lines, and remove what is obvious from the code.
 - **Same session.** Asking the question in the session that wrote the file proves nothing. It has to be a new one.
 
 ## Done when

@@ -2,6 +2,8 @@ When the user types "survey" or "/survey", follow the instructions in `.claude/s
 
 When the user types "start-issue" or "/start-issue", follow the instructions in `.claude/skills/start-issue/SKILL.md`.
 
+The same rules are in `CLAUDE.md` for Claude Code. Change both files together.
+
 ## Conventions
 
 - Language: English in documentation, PRs and commit messages. Code and comments follow the file you are in.

@@ -12,6 +12,6 @@ A made-up incident from a made-up morning. The symptom is known, the cause isn't
 | `logs/indexer.log` | The service that puts new documents into the search index |
 | `logs/search.log` | The search cluster (two nodes, `search-1` and `search-2`) |
 
-All times are UTC. Not everything that looks odd has anything to do with the problem.
+All times are UTC. The logs are excerpts, not every line. Not everything that looks odd has anything to do with the problem.
 
 Start the agent in this folder. The answer is on the task page, so don't let the agent read that page.

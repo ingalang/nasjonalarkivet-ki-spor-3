@@ -69,7 +69,7 @@ You have a timeline and hypotheses where you have checked at least one piece of 
 - The frontend deploy at 07:40: gives a short burst of 5xx and a higher p95 for a few minutes, but is over at 07:46, while indexing stops at 08:31.
 - The slow token refresh and the certificate that expires in 29 days: warnings, but indexing works after both.
 - The slow snapshot at 02:00: finishes without errors.
-- `search-1` looks healthy, at 61–65 %.
+- `search-1` looks healthy, at 61–66 %.
 
 **Next check** (read only): `GET _cat/allocation?v` and `GET _cat/indices/records-2026*?v&h=index,store.size` for disk per node and index size, and `GET records-2026/_settings/index.blocks*` for the block.
 

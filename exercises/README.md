@@ -14,4 +14,4 @@ Made-up practice material for the [tasks](../tasks.md), for those who don't have
 | [k/](k/) | [K. Automate a task](../tasks/k-automate-recurring-task.md) | A folder of files with messy names |
 | [l/](l/) | [L. Troubleshoot](../tasks/l-troubleshoot-from-signals.md) | A made-up incident: ticket, logs, metrics and changes |
 
-Start the agent in the folder for your task. Use `git status` and `git diff` to see what it changed, and `git restore .` to start over.
+Start the agent in the folder for your task. This is especially important for D and L: their answer keys are outside the exercise folders, and starting the agent at the repository root would make the answers part of its context. Use `git status` and `git diff` to see what it changed, and `git restore .` to start over.

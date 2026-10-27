@@ -24,6 +24,21 @@ The deliverable is a Markdown file with:
 4. For every hypothesis, check one piece of evidence yourself in the files.
 5. Ask what the agent would need to see to be sure.
 
+## Test matrix
+
+Use this matrix for `exercises/l/`. For the last check, choose any two timeline entries rather than trusting the references without checking them.
+
+| # | What you check | Expected |
+|---|---|---|
+| 1 | Does the timeline start with the nightly reindex? | 01:00, in `changes.log` and `logs/search.log` (01:00:03–01:00:05) |
+| 2 | Does it include the skipped alias switch? | 06:02, in `changes.log`: `Alias switch skipped: --switch-alias not set` |
+| 3 | Does it include the flood-stage block? | 08:31:04, in `logs/search.log`: `read_only_allow_delete` on `records-2026` and `records-2026-v2` |
+| 4 | Does the indexing stop show in the metrics? | At 08:35, `index_queue_depth` changes from 4 to 124 and `indexed_per_min` from 35 to 0. At 09:05, the queue is 1024 |
+| 5 | Is the frontend deploy ruled out with evidence? | 5xx is 14/min only at 07:40 and 07:45, and is back to 0 at 07:50. Indexing continues until 08:31 |
+| 6 | Is `search-1` left out of the cause? | Its disk usage stays at 61–66% |
+| 7 | Is the next check read-only? | `GET` only. No `PUT`, `DELETE`, settings change or alias switch |
+| 8 | Check two timeline lines yourself | Both are present in the file the agent named |
+
 ## Prompts to try
 
 ```text
@@ -59,23 +74,7 @@ Ongoing monitoring and early warning are interesting too, but take more than one
 
 You have a timeline and hypotheses where you have checked at least one piece of evidence yourself, and you can say whether the agent found the cause.
 
-<details>
-<summary>Answer for <code>exercises/l/</code> (open when you are done)</summary>
-
-**Cause:** the nightly reindex (01:00) copied `records-2026` into `records-2026-v2` on `search-2`, but didn't switch the alias or delete the old index (`changes.log`: "Alias switch skipped"). The disk on `search-2` grew from 71 % to past the flood stage watermark of 95 % at 08:31. The search cluster then marked the indices on that node read-only (`search.log`, 08:31:04). The indexer gets `429 cluster_block_exception`, gives up after five retries and puts the batch back on the queue, so the queue grows (`indexer.log`, `metrics.csv`). Reads still work, which is why search finds old documents and isn't slow.
-
-**Red herrings:**
-
-- The frontend deploy at 07:40: gives a short burst of 5xx and a higher p95 for a few minutes, but is over at 07:46, while indexing stops at 08:31.
-- The slow token refresh and the certificate that expires in 29 days: warnings, but indexing works after both.
-- The slow snapshot at 02:00: finishes without errors.
-- `search-1` looks healthy, at 61–66 %.
-
-**Next check** (read only): `GET _cat/allocation?v` and `GET _cat/indices/records-2026*?v&h=index,store.size` for disk per node and index size, and `GET records-2026/_settings/index.blocks*` for the block.
-
-**Not part of the exercise:** the fix (switch the alias, delete the old index, check that the block is lifted), and why the reindex job runs without `--switch-alias`.
-
-</details>
+When you are ready, compare your result with the [answer for exercise L](../answers/l.md).
 
 ## When you are done
 

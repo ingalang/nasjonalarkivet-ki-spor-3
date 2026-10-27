@@ -11,7 +11,8 @@ A made-up incident from a made-up morning. The symptom is known, the cause isn't
 | `metrics.csv` | Disk, indexing queue, search traffic and errors every 5 minutes, 00:00–10:00 |
 | `logs/indexer.log` | The service that puts new documents into the search index |
 | `logs/search.log` | The search cluster (two nodes, `search-1` and `search-2`) |
+| `sample-incident.md` | A fallback report to review if you cannot run an agent or terminal; it contains one deliberate mistake |
 
 All times are UTC. The logs are excerpts, not every line. Not everything that looks odd has anything to do with the problem.
 
-Start the agent in this folder. The answer is on the task page, so don't let the agent read that page.
+Start the agent in this folder, not at the repository root. The [answer key](../../answers/l.md) is outside this folder; don't open it until you are done.

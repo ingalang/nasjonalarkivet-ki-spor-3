@@ -48,6 +48,25 @@ Alternative to inline instructions:
 claude "Follow instructions in instructions.md."
 ```
 
+## Test matrix
+
+Run these checks from `exercises/h/`. Tests 9 and 10 are grey zones: there is no answer key, because the point is to notice the behaviour and decide before changing it.
+
+| # | What you check | Expected |
+|---|---|---|
+| 1 | Did you save the old output before the agent changed anything? | `old-1990-1999.txt`, `old-1990.txt` and `old-2000-2005.txt` exist and were made from the untouched script |
+| 2 | `python3 extract.py cases.csv 1990 1999`, compared with the old output | No difference (`diff` prints nothing). `Totalt: 6` and `Hoppet over (mangler dato): 1` |
+| 3 | `python3 extract.py cases.csv 1990` (no end year), compared with the old output | No difference. The header ends in `1990-` and the report says `Totalt: 7` |
+| 4 | `python3 extract.py cases.csv 2000 2005`, compared with the old output | No difference. `Totalt: 1`, and still `Hoppet over (mangler dato): 1` |
+| 5 | `sak` and ` sak` (with a leading space) | Both are counted under `SAK (3)` in the 1990–1999 run |
+| 6 | The case with an empty archive part | It is listed under `UKJENT (1)` |
+| 7 | Graded cases | Exactly two are marked `[GRADERT]`: `1990/0233` (`J`) and `1992/0555` (`ja`). `1991/0102` (`n`) is not marked |
+| 8 | The long title | It is cut to `Byggesak, tilbygg til våningshus – na...` |
+| 9 | Grey zone: the graded check is exact and case-sensitive (`J`, `j`, `ja`), so `Ja` would not count | Add a `Ja` row or answer from the code. Did the agent ask before changing this behaviour, or change it silently? |
+| 10 | Grey zone: `python3 extract.py cases.csv 1990 abc` silently drops the end year because the bare `except` sets it to 9999 | Keep this behaviour, or fail with an error? Write down what you decided |
+
+Test 4 is a deliberate trap. The row without a date (`1993/0019`) is outside 2000–2005, but the old script counts missing dates before applying the year filter. A tidy version that filters first and counts afterwards changes the output.
+
 ## Prompts to try
 
 ```text

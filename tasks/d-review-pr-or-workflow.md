@@ -6,7 +6,7 @@
 
 Ask the agent to look for security problems in a PR or in `.github/workflows/`: secrets in plain text, permissions that are too broad, and actions not pinned to a version.
 
-**No PR or workflow at hand?** Use [`exercises/d/`](../exercises/d/): a workflow with deliberate security problems, and the answers.
+**No PR or workflow at hand?** Use [`exercises/d/`](../exercises/d/): a workflow with deliberate security problems. Check the [answers](../answers/d.md) when you are done.
 
 ## Steps
 

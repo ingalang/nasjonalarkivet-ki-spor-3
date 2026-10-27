@@ -37,11 +37,11 @@ last edit, all three runs are shown with diff exiting 0:
 python3 extract.py cases.csv 1990 1999 | diff - old-1990-1999.txt
 python3 extract.py cases.csv 1990 | diff - old-1990.txt
 python3 extract.py cases.csv 2000 2005 | diff - old-2000-2005.txt
-and git diff --stat old-outputs lists only extract.py and the new test file (the old-*.txt files stay as
-committed). Stop after 15 turns.
+and git add -A && git diff --cached --stat old-outputs lists only extract.py and the new test file (the
+old-*.txt files stay as committed). Stop after 15 turns.
 ```
 
-`git diff --stat old-outputs` compares with the tagged commit, so it works whether or not the agent has committed. Each range catches something different: the open-ended one the missing end year (the report header ends with a dash), and 2000–2005 the undated row that is still counted as skipped outside its range. See [Keep the agent going with `/goal`](../resources.md#keep-the-agent-going-with-goal).
+`git add -A && git diff --cached --stat old-outputs` compares everything in the folder with the tagged commit, new files included, so it works whether or not the agent has committed. A plain `git diff --stat` would miss files the agent created but never added. Each range catches something different: the open-ended one the missing end year (the report header ends with a dash), and 2000–2005 the undated row that is still counted as skipped outside its range. See [Keep the agent going with `/goal`](../resources.md#keep-the-agent-going-with-goal).
 
 ## Prompts to try
 

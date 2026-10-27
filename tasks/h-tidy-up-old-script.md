@@ -45,7 +45,7 @@ pull request.
 
 Alternative to inline instructions:
 ```text
-Follow instructions in instructions.md.
+claude "Follow instructions in instructions.md."
 ```
 
 ## Prompts to try

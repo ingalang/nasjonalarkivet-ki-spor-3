@@ -43,6 +43,15 @@ old-*.txt files stay as committed). Stop after 15 turns.
 
 `git add -A && git diff --cached --stat old-outputs` compares everything in the folder with the tagged commit, new files included, so it works whether or not the agent has committed. A plain `git diff --stat` would miss files the agent created but never added. Each range catches something different: the open-ended one the missing end year (the report header ends with a dash), and 2000–2005 the undated row that is still counted as skipped outside its range. See [Keep the agent going with `/goal`](../resources.md#keep-the-agent-going-with-goal).
 
+To get the result into a draft pull request instead, add this to the end of the `/goal` text. The agent pushes a branch, so you need push access. For `exercises/h/` in this course repo, fork it first (`gh repo fork --remote`), so the pull request opens in your fork:
+
+```text
+Work in a new branch in a separate worktree, created from the commit tagged old-outputs. When the goal is met,
+commit, push the branch and create a draft pull request.
+```
+
+The branch must start from `old-outputs`. Otherwise the worktree has no `old-*.txt` files to compare with.
+
 ## Prompts to try
 
 ```text

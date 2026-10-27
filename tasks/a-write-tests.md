@@ -31,6 +31,13 @@ Before you write anything: list the test cases for <function/endpoint>, both nor
 Write the tests, following how the existing tests in this repo are written. Run them and show me the result.
 ```
 
+To get the tests into a draft pull request instead, let the agent work in its own branch and worktree. It pushes the branch, so you need push access to the repo. Your team's repo is fine. For `exercises/a/` in this course repo, fork it first (`gh repo fork --remote`), so the pull request opens in your fork:
+
+```text
+Write the tests, following how the existing tests in this repo are written. Run them and show me the result.
+Create a branch in a separate worktree with the changes, and create a draft pull request.
+```
+
 ## Watch out for
 
 - **Testing the mock.** If everything is mocked, the test only checks the mock. Ask what the test would catch if the real code broke.

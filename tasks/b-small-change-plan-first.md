@@ -32,6 +32,12 @@ what fails.
 Go through the diff with me, file by file. Why is each change needed?
 ```
 
+When you are happy with the diff, let the agent open a draft pull request. It pushes a branch, so you need push access to the repo:
+
+```text
+Move the changes to a new branch in a separate worktree, and create a draft pull request that closes <issue>.
+```
+
 Once the plan is approved, you can let it finish with `/goal`. Replace `<test command>` and `<lint command>` with your repo's own (see its `AGENTS.md` or `README`); with no tests, name the script or command that shows the change works:
 
 ```text

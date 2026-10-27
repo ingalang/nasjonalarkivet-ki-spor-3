@@ -29,6 +29,19 @@ the file so I can edit it myself. Add a search box.
 Change: <what>. Don't change anything else.
 ```
 
+**Compare layouts first (Claude Code).** Before the agent builds the page, have it show you two or three clickable mockups as one private claude.ai artifact. Pick one, then ask for the HTML file. The artifact is stored on claude.ai, so use made-up data only.
+
+```text
+Before you build anything: make three clickable mockups of <the page>, as one artifact with a switcher so I
+can compare them in the browser. Make them genuinely different layouts, not just different colours. Use
+made-up data. Write two sentences under each option: what it does well and its weak spot. Wait until I have
+picked one.
+```
+
+```text
+Build option <B> as a single HTML file I can open in the browser. No server, nothing to install.
+```
+
 ## Watch out for
 
 - **External dependencies.** A page that loads scripts from the internet may not work on a locked-down machine. Ask for everything in one file.

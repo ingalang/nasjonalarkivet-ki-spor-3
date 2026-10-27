@@ -1,0 +1,8 @@
+{
+  "routes": [
+    { "prefix": "/api/records/", "upstream": "http://records-api:8080/records/" },
+    { "prefix": "/api/catalogue", "upstream": "http://catalogue:8080/" },
+    { "prefix": "/api/search/", "upstream": "http://search-api:8080/" }
+  ],
+  "public_paths": ["/health", "/api/catalogue"]
+}

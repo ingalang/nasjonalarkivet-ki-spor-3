@@ -5,7 +5,7 @@ Made-up practice material for the [tasks](../tasks.md), for those who don't have
 | Folder | Task | What's in it |
 |---|---|---|
 | [a/](a/) | [A. Write tests](../tasks/a-write-tests.md) | A small Python module with no tests |
-| [c/](c/) | [C. Explain something](../tasks/c-explain-something.md) | An Argo workflow to explain |
+| [c/](c/) | [C. Explain something](../tasks/c-explain-something.md) | An Argo workflow to explain, and three services to trace a call through |
 | [d/](d/) | [D. Review a workflow](../tasks/d-review-pr-or-workflow.md) | A GitHub workflow with security problems |
 | [f/](f/) | [F. Decision paper](../tasks/f-notes-to-decision-paper.md) | Meeting notes with an open decision |
 | [h/](h/) | [H. Tidy up a script](../tasks/h-tidy-up-old-script.md) | A messy extract script and a test file |

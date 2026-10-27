@@ -27,6 +27,8 @@ docs/<name>.md with a description, a Mermaid sequenceDiagram, a repo/file:line r
 step, and a list of open questions. Mark anything you couldn't confirm in the code.
 ```
 
+**Nothing at hand?** Use [`exercises/c/services/`](../exercises/c/services/): three fictional services side by side, with out-of-date READMEs.
+
 ## Steps
 
 1. Pick something you have avoided touching because you don't fully understand it.
@@ -61,6 +63,30 @@ What in this file would surprise someone who changes it for the first time?
 ## Done when
 
 You have found one thing you didn't know, or one mistake in the explanation.
+
+<details>
+<summary>Answer for <code>exercises/c/services/</code> (open when you are done)</summary>
+
+**The call:** `GET /api/records/<id>` → `gateway/gateway/server.py` finds the route and checks if the path is public → `gateway/gateway/auth.py` reads the bearer token and verifies it with the *vendored copy* `gateway/gateway/vendor/identity_tokens.py` → the gateway drops client-sent `X-User-Id`/`X-Scopes`/`X-Unit`/`X-Gateway-Secret`, sets them from the token, adds the shared secret and removes `Authorization` → `records-api/records_api/trust.py` trusts the headers only if `X-Gateway-Secret` matches → `records-api/records_api/access.py` checks the scope `records:read`, and for restricted records also `records:read-restricted` and the same unit.
+
+**Who checks what:** the gateway checks the token (signature, `kid`, expiry). records-api checks the scopes. Nobody checks the audience.
+
+**When a check fails:** no or bad token → 401 with `WWW-Authenticate` from the gateway. Wrong or missing gateway secret → 401 from records-api. Restricted record you may not see → 404, the same as a missing record. Open record without `records:read` → 403. The gateway passes upstream status codes through unchanged.
+
+**The READMEs are wrong:**
+
+- `gateway/README.md` says RS256 with a public key and a scope check in the gateway. The code uses HMAC (HS256) with shared keys, and the scope check is commented out.
+- `records-api/README.md` says records-api verifies the token itself with `legacy_jwt.py`. Nothing imports that file. It also says restricted records give 403; they give 404.
+
+**Things worth finding:**
+
+- The vendored copy differs from `identity/identity/tokens.py`: 300 s leeway instead of 30, and no audience check. A token for another audience is accepted.
+- If `GATEWAY_SHARED_SECRET` isn't set in records-api, the expected value is `""`, and a request without the header matches. Anyone who can reach records-api directly can then set `X-User-Id` and `X-Scopes` themselves.
+- `public_paths` uses `startswith`, so `/api/catalogue` also makes `/api/catalogue-admin` public.
+
+**Open questions the agent should list:** where the keys and `GATEWAY_SHARED_SECRET` are set (the environment, not in any repo), whether records-api can be reached without going through the gateway (network policy isn't here), and which keys are in `IDENTITY_OLD_KEYS`.
+
+</details>
 
 ## When you are done
 

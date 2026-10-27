@@ -10,3 +10,7 @@ Ask the agent to explain it and draw the flow as a Mermaid diagram. Questions wo
 - When is `convert` skipped, and does `store` still run then?
 - What happens if the virus scan fails? And if `index` fails?
 - When does `notify` run?
+
+**Variant:** [`services/`](services/) has three fictional services for tracing one call across repos.
+
+**Demo:** [`demo.md`](demo.md) is the prompt for the variant. Start the agent in `services/` and paste it in.

@@ -17,7 +17,7 @@ Documents published after about 08:30 are missing from search, while older docum
 | 07:40–07:50 | 5xx rises to 14 per minute for two samples, then returns to zero. | `metrics.csv`, lines 94–96 |
 | 08:30 | The last successful batch of 34 documents is indexed. | `logs/indexer.log`, line 10 |
 | 08:31 | `search-2` passes the 95% flood-stage watermark. Both record indices are made read-only, and indexing starts failing with 429 responses. | `logs/search.log`, lines 14–15; `logs/indexer.log`, lines 11–16 |
-| 08:35–09:05 | Indexing falls from 35 to 0 documents per minute and the queue grows from 4 to 1024. | `metrics.csv`, lines 104–111 |
+| 08:30–09:05 | Indexing falls from 35 to 0 documents per minute and the queue grows from 4 to 1024. | `metrics.csv`, lines 104–111 |
 
 ## Hypotheses
 

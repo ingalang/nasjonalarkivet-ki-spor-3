@@ -1,55 +1,55 @@
 # extract.py - lag rapport over saksmapper
 # bruk: python3 extract.py cases.csv 1990 [1999]
-# skrevet i all hast i 2016, endret litt etterpå
-import sys, csv
+import csv
+import sys
+from collections import defaultdict
 
-f = sys.argv[1]
-fra = int(sys.argv[2])
-try:
-    til = int(sys.argv[3])
-except:
-    til = 9999
+INGEN_SLUTT = 9999
+STREK = "=" * 40
+GRADERT = {"J", "j", "ja"}
 
-rader = []
-for r in csv.reader(open(f, encoding="utf-8"), delimiter=";"):
-    if r[0] == "id":
-        continue
-    rader.append(r)
 
-res = {}
-antall = 0
-hoppet = 0
-for r in rader:
+def les_rader(filnavn):
+    with open(filnavn, encoding="utf-8") as fil:
+        return [r for r in csv.reader(fil, delimiter=";") if r[0] != "id"]
+
+
+def kort_tittel(tittel):
+    return tittel if len(tittel) <= 40 else tittel[:37] + "..."
+
+
+def main(filnavn, fra, til):
+    grupper = defaultdict(list)
+    antall = 0
+    hoppet = 0
+    for r in les_rader(filnavn):
+        try:
+            aar = int(r[3][:4])
+        except ValueError:
+            hoppet += 1
+            continue
+        if fra <= aar <= til:
+            arkivdel = r[5].strip().upper() if r[5] else "UKJENT"
+            grupper[arkivdel].append(r)
+            antall += 1
+
+    slutt = str(til) if til != INGEN_SLUTT else ""
+    print(f"Rapport saksmapper {fra}-{slutt}")
+    print(STREK)
+    for arkivdel in sorted(grupper):
+        print(f"{arkivdel} ({len(grupper[arkivdel])})")
+        for r in sorted(grupper[arkivdel], key=lambda r: r[3]):
+            gradert = " [GRADERT]" if r[4] in GRADERT else ""
+            print(f"  {r[1]}  {r[3]}  {kort_tittel(r[2])}{gradert}")
+    print(STREK)
+    print(f"Totalt: {antall}")
+    if hoppet:
+        print(f"Hoppet over (mangler dato): {hoppet}")
+
+
+if __name__ == "__main__":
     try:
-        aar = int(r[3][0:4])
-    except:
-        hoppet = hoppet + 1
-        continue
-    if aar >= fra:
-        if aar <= til:
-            if r[5] == "" or r[5] == None:
-                ark = "UKJENT"
-            else:
-                ark = r[5].strip().upper()
-            if ark in res:
-                res[ark] = res[ark] + [r]
-            else:
-                res[ark] = [r]
-            antall = antall + 1
-
-print("Rapport saksmapper " + str(fra) + "-" + (str(til) if til != 9999 else ""))
-print("=" * 40)
-for k in sorted(res.keys()):
-    print(k + " (" + str(len(res[k])) + ")")
-    for r in sorted(res[k], key=lambda x: x[3]):
-        tittel = r[2]
-        if len(tittel) > 40:
-            tittel = tittel[0:37] + "..."
-        gradert = ""
-        if r[4] == "J" or r[4] == "j" or r[4] == "ja":
-            gradert = " [GRADERT]"
-        print("  " + r[1] + "  " + r[3] + "  " + tittel + gradert)
-print("=" * 40)
-print("Totalt: " + str(antall))
-if hoppet > 0:
-    print("Hoppet over (mangler dato): " + str(hoppet))
+        til = int(sys.argv[3])
+    except (IndexError, ValueError):
+        til = INGEN_SLUTT
+    main(sys.argv[1], int(sys.argv[2]), til)

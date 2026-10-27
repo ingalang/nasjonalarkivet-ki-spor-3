@@ -5,3 +5,4 @@ tilbakemelding-*.md
 .agent/
 __pycache__/
 exercises/j/archive.db
+exercises/**/instructions.md

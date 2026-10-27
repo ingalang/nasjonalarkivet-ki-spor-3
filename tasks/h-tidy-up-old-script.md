@@ -20,16 +20,9 @@ Take a script you use often, for example an extract from Noark 5. Ask the agent 
 4. Ask the agent to explain the script, then to tidy it up.
 5. Run the new version on the same file and compare the output with the old one.
 
-**Let it run with `/goal`.** Save and commit the old output yourself before the agent starts, so it can't regenerate it from its own version. For the exercise files, in `exercises/h/`:
+**Let it run with `/goal`.** The old output must be saved and committed before the agent starts, so it can't regenerate it from its own version. For the exercise files this is already done: `exercises/h/` has `old-1990-1999.txt`, `old-1990.txt` and `old-2000-2005.txt`, made with the original `extract.py`. With your own script, save and commit its output yourself, and use that commit instead of `origin/main` below.
 
-```bash
-python3 extract.py cases.csv 1990 1999 > old-1990-1999.txt
-python3 extract.py cases.csv 1990 > old-1990.txt
-python3 extract.py cases.csv 2000 2005 > old-2000-2005.txt
-git add old-*.txt && git commit -m "test: old outputs of extract.py" && git tag old-outputs
-```
-
-Then give the agent a condition it can't talk its way around:
+Give the agent a condition it can't talk its way around:
 
 ```text
 /goal Tidy extract.py and add a test that compares its output with the old-*.txt files. Met only when, after the
@@ -37,20 +30,23 @@ last edit, all three runs are shown with diff exiting 0:
 python3 extract.py cases.csv 1990 1999 | diff - old-1990-1999.txt
 python3 extract.py cases.csv 1990 | diff - old-1990.txt
 python3 extract.py cases.csv 2000 2005 | diff - old-2000-2005.txt
-and git add -A && git diff --cached --stat old-outputs lists only extract.py and the new test file (the
+and git add -A && git diff --cached --stat origin/main lists only extract.py and the new test file (the
 old-*.txt files stay as committed). Stop after 15 turns.
 ```
 
-`git add -A && git diff --cached --stat old-outputs` compares everything in the folder with the tagged commit, new files included, so it works whether or not the agent has committed. A plain `git diff --stat` would miss files the agent created but never added. Each range catches something different: the open-ended one the missing end year (the report header ends with a dash), and 2000–2005 the undated row that is still counted as skipped outside its range. See [Keep the agent going with `/goal`](../resources.md#keep-the-agent-going-with-goal).
+`git add -A && git diff --cached --stat origin/main` compares everything with `main` on GitHub, new files included, so it works whether or not the agent has committed. A plain `git diff --stat` would miss files the agent created but never added. Each range catches something different: the open-ended one the missing end year (the report header ends with a dash), and 2000–2005 the undated row that is still counted as skipped outside its range. See [Keep the agent going with `/goal`](../resources.md#keep-the-agent-going-with-goal).
 
 To get the result into a draft pull request instead, add this to the end of the `/goal` text. The agent pushes a branch, so you need push access. For `exercises/h/` in this course repo, fork it first (`gh repo fork --remote`), so the pull request opens in your fork:
 
 ```text
-Work in a new branch in a separate worktree, created from the commit tagged old-outputs. When the goal is met,
-commit, push the branch and create a draft pull request.
+Work in a new branch in a separate worktree. When the goal is met, commit, push the branch and create a draft
+pull request.
 ```
 
-The branch must start from `old-outputs`. Otherwise the worktree has no `old-*.txt` files to compare with.
+Alternative to inline instructions:
+```text
+Follow instructions in instructions.md.
+```
 
 ## Prompts to try
 
